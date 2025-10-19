@@ -6,7 +6,7 @@ import whitearrowicon from "../assets/white_arrow_icon.svg";
 import blackarrowicon from "../assets/black_arrow_icon.svg";
 import bannerCoc from "../assets/mainBannerCoc.jpg";
 import bannerBakery from "../assets/mainBannerrBakery.jpg";
-import bannerFruits from "../assets/MainBannerFruits.jpg";
+import bannerFruits from "../assets/mainBannerFruits.jpg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 

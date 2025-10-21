@@ -21,21 +21,31 @@ const port = process.env.PORT || 5000;
 // Allowed Multiple Origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://e-comerce-web.onrender.com",
+  "https://visionary-florentine-e4ed9a.netlify.app",
 ];
 
-//middleware
 app.use(
   cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
-    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*", cors());
+
 app.use(express.json());
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-  res.send(`server is properly working brother..i'm thankfull`);
+  res.send(`server is properly working brother..i'm ArabinduChakraborty`);
 });
 app.use("/api/user", userRouter);
 app.use("/api/seller", SellerRouter);

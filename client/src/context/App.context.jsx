@@ -4,8 +4,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
-const backendURL = import.meta.env.VITE_BACKEND_URL?.trim();
-axios.defaults.baseURL = backendURL.startWith("http")
+const rawURL = import.meta.env.VITE_BACKEND_URL;
+const backendURL =
+  typeof rawURL === "string"
+    ? rawURL.trim()
+    : "https://e-comerce-web.onrender.com";
+axios.defaults.baseURL = backendURL.startsWith("http")
   ? backendURL
   : `https://${backendURL}`;
 

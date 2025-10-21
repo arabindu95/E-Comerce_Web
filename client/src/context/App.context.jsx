@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
+const backendURL = import.meta.env.VITE_BACKEND_URL?.trim();
+axios.defaults.baseURL = backendURL.startWith("http")
+  ? backendURL
+  : `https://${backendURL}`;
 
 const AppContext = createContext();
 

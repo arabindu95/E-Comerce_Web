@@ -43,10 +43,16 @@ const AddAddress = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/address/add", {
-        address,
-        userId: user._id,
-      });
+      const token = localStorage.getItem("token");
+      const { data } = await axios.post(
+        "/api/address/add",
+        { address },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (data.success) {
         alert("complete");
         navigate("/cart");

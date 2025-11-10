@@ -12,6 +12,6 @@ const productRoutes = express.Router();
 productRoutes.post("/add", upload.array(["images"]), addProduct);
 productRoutes.get("/list", productList);
 productRoutes.get("/id", productById);
-productRoutes.post("/stock", authSeller, changeStock);
+productRoutes.post("/stock", changeStock);
 
 export default productRoutes;

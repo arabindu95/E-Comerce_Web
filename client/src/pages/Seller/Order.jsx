@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { dummyOrders } from "../../assets/assets";
 import { assets } from "../../assets/assets";
 import { useAppContext } from "../../context/App.context";
 

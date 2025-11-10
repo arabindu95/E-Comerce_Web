@@ -9,7 +9,7 @@ import {
 } from "../controllers/productController.js";
 const productRoutes = express.Router();
 
-productRoutes.post("/add", upload.array(["images"]), authSeller, addProduct);
+productRoutes.post("/add", upload.array(["images"]), addProduct);
 productRoutes.get("/list", productList);
 productRoutes.get("/id", productById);
 productRoutes.post("/stock", authSeller, changeStock);
